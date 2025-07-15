@@ -1,0 +1,35 @@
+*{
+    margin : 0 ; 
+    padding: 0;
+    box-sizing:border-box; 
+}
+
+body{
+    Background-color:rgb(239, 234, 78);
+color:#333;
+text-align: center;
+line-height: 1.6;
+}
+
+.section{
+    padding:40px 20px;
+}
+
+.hero{
+    padding:50px 20px;
+}
+
+.hero h2{
+    font-size: 100px;
+}
+
+.grid{
+    display:grid;
+    Gap:10px;
+}
+
+.grid div{
+    background-color:gray;
+    padding: 20px;
+    Border-radius:100px;
+}
