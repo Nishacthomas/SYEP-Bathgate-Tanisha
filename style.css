@@ -5,8 +5,8 @@
 }
 
 body{
-    Background-color:rgb(239, 234, 78);
-color:#333;
+    Background-color:rgb(211, 203, 168);
+color:#73693a;
 text-align: center;
 line-height: 1.6;
 }
@@ -29,7 +29,19 @@ line-height: 1.6;
 }
 
 .grid div{
-    background-color:gray;
+    background-color:rgb(172, 182, 115);
     padding: 20px;
     Border-radius:100px;
+}
+
+@media (max-width: 768px){
+    .hero h1{font-size:40px;;}
+}
+
+@media (max-width:768px) {
+    body{background-color: rgb(64, 67, 49)};
+}
+.hero-text {
+    display: flex;
+    flex-direction: :column;
 }
