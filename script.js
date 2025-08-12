@@ -1,43 +1,70 @@
-console.log("Hello world!");
+const reviews = [
+  {
+    id: 1,
+    name: 'Jeff Palmere',
+    job: 'Teacher and dance coach',
+    img: 'jeff.jpg',
+    text: "Coaching Tanisha as both their teacher and cheerleading coach has been incredibly rewarding. Their energy, teamwork, and unwavering commitment to excellence shine both in the classroom and on the sidelines, inspiring everyone around them to do their best.",
 
-let myString = "a2b3c";
-console.log(myString);
+  },
+  {
+    id: 2,
+    name: 'Emma Garcia',
+    job: 'Math Teacher',
+    img: 'emma.png',
+text: 'Tanisha consistently demonstrates strong problem-solving skills and a genuine enthusiasm for learning mathematics. Their dedication, curiosity, and persistence make them a standout student in the classroom.',
+  },
+  {
+    id: 3,
+    name: 'peter jones',
+    job: 'intern',
+    img: 'https://www.course-api.com/images/people/person-4.jpeg',
+    text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto asperiores debitis incidunt, eius earum ipsam cupiditate libero? Iste, doloremque nihil?',
+  },
+];
+// select items
+const img = document.getElementById('person-img');
+const author = document.getElementById('author');
+const job = document.getElementById('job');
+const info = document.getElementById('info');
 
-let myNumVar = 123;
-console.log(typeof myNumVar
+const prevBtn = document.querySelector('.prev-btn');
+const nextBtn = document.querySelector('.next-btn');
+const randomBtn = document.querySelector('.random-btn');
 
-    console.log(10 + "eggs")
-    console.log(10+7+"eggs");
-    console.log("eggs" +10 + 7);
+// set starting item
+let currentItem = 0;
 
-    console.log(2==2);
-    console.log(7>3)&&(5<10); 
-    
-    //One condition must be true
-    console.log(10>3) || (10>12); 
+// load initial item
+window.addEventListener('DOMContentLoaded', function () {
+  const item = reviews[currentItem];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+});
 
-    //If the statement is logical or not
-    console.log(!5>3); 
-
-
-    function introduction((name, age){
-        console.log("Hello, my name is " + name + "and I am" + age + " years old.");
-    }
-    introduction("Tanisha" ,15)
-
-
-    const hour = new Date().getHours();
-    let greeting;"";
-
-    if(hour<12){
-        greeting = "Good morning🌞"; 
-    }else if (hour<18){
-        greeting = "Good afternoon🌞";
-    }else { 
-        greeting= " Good evening🌙";
-    
-    }
-
-document.getElementById("greeting").innerText= greeting;
-    
-    
+// show person based on item
+function showPerson(person) {
+  const item = reviews[person];
+  img.src = item.img;
+  author.textContent = item.name;
+  job.textContent = item.job;
+  info.textContent = item.text;
+}
+// show next person
+nextBtn.addEventListener('click', function () {
+  currentItem++;
+  if (currentItem > reviews.length - 1) {
+    currentItem = 0;
+  }
+  showPerson(currentItem);
+});
+// show prev person
+prevBtn.addEventListener('click', function () {
+  currentItem--;
+  if (currentItem < 0) {
+    currentItem = reviews.length - 1;
+  }
+  showPerson(currentItem);
+});
